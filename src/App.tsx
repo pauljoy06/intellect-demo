@@ -1,8 +1,13 @@
 import './App.css';
+import { SliderWidget } from './components';
 
 function App() {
     return <div className='App'>
-        <h1>Hello World</h1>
+        <div className='first-fold'>
+            <div className='slider-widget-wrapper'>
+                <SliderWidget />
+            </div>
+        </div>
     </div>
 }
 

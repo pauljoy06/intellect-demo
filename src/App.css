@@ -5,3 +5,93 @@
 @media (prefers-reduced-motion: no-preference) {
 }
 
+.App {
+    .first-fold {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        height: 100vh;
+        width: 100vw;
+        padding: 30px;
+
+        border: 40px solid #e4e5eb;
+
+        .slider-widget-wrapper {
+            height: 600px;
+            width: 500px;
+        }
+    }
+}
+
+.slider-widget {
+    height: 100%;
+    width: 100%;
+    background-color: #325d6e;
+
+    .display-value {
+
+    }
+
+    .range-slider {
+
+    }
+}
+
+input[type='range'] {
+    /* remove default styles */
+    -webkit-appearance: none; /* removes only slider, thumb styles are not completely removed*/
+    appearance: none; /* not sure if this is required*/
+
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+
+    border-radius: 16px;
+
+    height: 10px;
+}
+
+/* for webkit browsers */
+input[type='range']::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+
+    height: 15px;
+    width: 15px;
+
+    background-color: #6ddce7;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: .2s ease-in-out;
+}
+
+/* for firefox */
+input[type='range']::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+
+    background-color: #6ddce7;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: .2s ease-in-out;
+}
+
+/* for webkit browsers */
+input[type='range']::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(109, 220, 231, 0.1);
+}
+input[type='range']:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(109, 220, 231, 0.1);
+}
+
+/* for firefox */
+input[type='range']::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(109, 220, 231, 0.1);
+}
+input[type='range']:active::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(109, 220, 231, 0.1);
+}
+
+
