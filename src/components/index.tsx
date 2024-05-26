@@ -12,6 +12,8 @@ const SliderWidget = (): JSX.Element => {
 
     return <div className='slider-widget'>
         <div className='display-value'>
+            <div className='striped-circle'>
+            </div>
         </div>
         <div className='range-slider'>
             <input

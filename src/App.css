@@ -18,6 +18,7 @@
         border: 40px solid #e4e5eb;
 
         .slider-widget-wrapper {
+            /* padding: 10px; */
             height: clamp(320px, 90%, 700px);
             width: clamp(290px, 90%, 500px);
         }
@@ -27,19 +28,30 @@
 .slider-widget {
     display: flex;
     flex-direction: column;
-
-    height: 100%;
-    width: 100%;
+    
+    padding: 10px;
+    height: 100%; /*Added to make widget auto adjust based on parent*/
+    width: 100%; /*Added to make widget auto adjust based on parent*/
     background-color: #325d6e;
 
     .display-value {
         flex: 3;
-        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* background-color: yellow; */
+        .striped-circle {
+            width: 80%;
+            height: 80%;
+
+            border-radius: 50%;
+            border: 1px dashed #ccc;
+        }
     }
 
     .range-slider {
         flex: 1;
-        background-color: blue;
     }
 }
 
