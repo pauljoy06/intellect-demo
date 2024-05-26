@@ -32,7 +32,9 @@
     padding: 10px;
     height: 100%; /*Added to make widget auto adjust based on parent*/
     width: 100%; /*Added to make widget auto adjust based on parent*/
+
     background-color: #325d6e;
+    border-radius: 12px;
 
     .display-value {
         flex: 3;

@@ -2,17 +2,47 @@ import { useState } from 'react';
 
 const SliderWidget = (): JSX.Element => {
     const [value, setValue] = useState<number>(5); // Default value set to 5
+    
+    // To recalculate the fill area for slider
     const sliderInputStyle = {
         background: `linear-gradient(to right, #6ddce7 ${value*10}%, #fff ${value*10}%)`
     }
 
-    const onThumbChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(Number(e.target.value));
-    };
-
     return <div className='slider-widget'>
         <div className='display-value'>
             <div className='striped-circle'>
+                <svg
+                    className='progress-ring'
+                    width='100%'
+                    height='100%'
+                    viewBox='0 0 100 100'
+                >
+                    <circle
+                        stroke='white'
+                        strokeWidth='2'
+                        strokeLinecap='round'
+                        fill='rgba(204, 204, 204, 0.2)'
+                        r='25'
+                        cx='50'
+                        cy='50'
+                        pathLength='10'
+                        strokeDasharray={`${value} ${10 - value}`}
+                    />
+                    <circle
+                        fill='#6fdbe7'
+                        r='15'
+                        cx='50'
+                        cy='50'
+                    />
+                    <text x='50' y='50'
+                        textAnchor='middle'
+                        dominantBaseline='middle'
+                        fill='white'
+                        fontSize='10'
+                    >
+                        {value}
+                    </text>
+                </svg>
             </div>
         </div>
         <div className='range-slider'>
@@ -22,7 +52,7 @@ const SliderWidget = (): JSX.Element => {
                 min='0'
                 max='10'
                 value={value}
-                onChange={onThumbChange}
+                onChange={e => Number(e.target.value)}
                 style={sliderInputStyle}
             />
         </div>
