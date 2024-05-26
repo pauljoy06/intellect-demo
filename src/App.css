@@ -18,23 +18,28 @@
         border: 40px solid #e4e5eb;
 
         .slider-widget-wrapper {
-            height: 600px;
-            width: 500px;
+            height: clamp(320px, 90%, 700px);
+            width: clamp(290px, 90%, 500px);
         }
     }
 }
 
 .slider-widget {
+    display: flex;
+    flex-direction: column;
+
     height: 100%;
     width: 100%;
     background-color: #325d6e;
 
     .display-value {
-
+        flex: 3;
+        background-color: red;
     }
 
     .range-slider {
-
+        flex: 1;
+        background-color: blue;
     }
 }
 
