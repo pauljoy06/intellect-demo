@@ -1,5 +1,5 @@
 import './App.css';
-import { SliderWidget } from './components';
+import { LevelIndicator, SliderWidget } from './components';
 
 function App() {
     return <div className='App'>
@@ -7,6 +7,9 @@ function App() {
             <div className='slider-widget-wrapper'>
                 <SliderWidget />
             </div>
+        </div>
+        <div className='second-fold'>
+            <LevelIndicator />
         </div>
     </div>
 }
