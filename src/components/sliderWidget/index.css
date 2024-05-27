@@ -1,0 +1,91 @@
+.slider-widget {
+    display: flex;
+    flex-direction: column;
+    
+    padding: 10px;
+    height: 100%; /*Added to make widget auto adjust based on parent*/
+    width: 100%; /*Added to make widget auto adjust based on parent*/
+
+    background-color: #325d6e;
+    border-radius: 12px;
+
+    .display-value {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* background-color: yellow; */
+        .striped-circle {
+            width: 80%;
+            height: 80%;
+
+            /* border-radius: 50%; */
+            /* border: 1px dashed #ccc; */
+        }
+    }
+
+    .range-slider {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        
+        margin: 40px;
+    }
+}
+
+input[type='range'] {
+    /* remove default styles */
+    -webkit-appearance: none; /* removes only slider, thumb styles are not completely removed*/
+    appearance: none; /* not sure if this is required*/
+
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+
+    border-radius: 16px;
+
+    height: 10px;
+}
+
+/* for webkit browsers */
+input[type='range']::-webkit-slider-thumb {
+    /* removing default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+
+    height: 15px;
+    width: 15px;
+
+    background-color: #6ddce7;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: .2s ease-in-out;
+}
+
+/* for firefox */
+input[type='range']::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+
+    background-color: #6ddce7;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: .2s ease-in-out;
+}
+
+/* for webkit browsers */
+input[type='range']::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(109, 220, 231, 0.1);
+}
+input[type='range']:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(109, 220, 231, 0.1);
+}
+
+/* for firefox */
+input[type='range']::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(109, 220, 231, 0.1);
+}
+input[type='range']:active::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(109, 220, 231, 0.1);
+}
