@@ -70,68 +70,53 @@ const SliderWidget = (): React.JSX.Element => {
 
 
 const LevelIndicator = (): React.JSX.Element => {
-    const [level, setlevel] = useState(1);
+    const [selectedLevel, setSelectedLevel] = useState(3);
+    const levels = [
+        { value: 5, width: '70%' },
+        { value: 4, width: '55%' },
+        { value: 3, width: '40%' },
+        { value: 2, width: '25%' }
+    ];
+    let label = '';
+    if (selectedLevel <= 2) {
+        label = 'Low';
+    } else if (selectedLevel <= 4) {
+        label = 'Medium';
+    } else {
+        label = 'High';
+    }
 
     return <div className='level-indicator'>
-        <Trapezium width='100%' />
-        <Trapezium width='80%' />
-        <Trapezium width='60%' />
-        <Trapezium width='40%' />
-        <Trapezium width='19%' />
-        <div className='bottom-triangle'></div>
+        <div className='label'>{label}</div>
+        {levels.map(level => <Trapezium
+            className={`${selectedLevel >= level.value ? ' level-active' : ''}`}
+            width={level.width}
+            onClick={() => setSelectedLevel(level.value)}
+            
+            key={level.value}
+        />)}
+        <div className={`bottom-triangle${selectedLevel >= 1 ? ' level-active' : ''}`} />
     </div>
 }
 
-const Trapezium = ({width='30px', height='27px'}: TrapeziumProps): React.JSX.Element => {
+const Trapezium = ({width='30px', height='39px', className, onClick}: TrapeziumProps): React.JSX.Element => {
     const style={
         width,
         height,
     }
 
-    return <div className='trapezium' style={style}>
-    </div>
-}
-
-const Triangle = () => {
-    return <div className='bottom-triangle'>
-    </div>
+    return <div className={`trapezium${className}`}
+        style={style}
+        onClick={onClick}
+    />
 }
 
 type TrapeziumProps = {
+    className?: string,
     width?: string,
-    height?: string
+    height?: string,
+    onClick?: () => void,
 }
-
-// const LevelIndicator = (): JSX.Element => {
-//     const [level, setLevel] = useState(1);
-//     const height = 20;
-//     const startX = 10;
-//     const startY = 10;
-//     const topWidth = 80;
-//     const baseWidth = 40;
-//
-//     return <div className='level-indicator'>
-//         {/*<div className='second-bottom-triangle'></div>
-//         <div className='bottom-triangle'></div>*/}
-//
-//         <svg width='100%' height='100%' viewBox='0 0 120 120'>
-//              <path
-//                  d={`
-//                     M ${startX} ${startY}
-//                     l ${topWidth} 0
-//                     q 14 0 4 10
-//                     l -20 ${height}
-//                     l -${baseWidth} 0
-//                     l -20 -${height}
-//                     q -13 -10 2 -10
-//                  `}
-//                  fill='transparent'
-//                  stroke='black'
-//                  strokeWidth={1}
-//              />
-//         </svg>
-//     </div>
-// }
 
 export {
     SliderWidget,

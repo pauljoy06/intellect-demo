@@ -9,7 +9,9 @@ function App() {
             </div>
         </div>
         <div className='second-fold'>
-            <LevelIndicator />
+            <div className='level-indicator-wrapper'>
+                <LevelIndicator />
+            </div>
         </div>
     </div>
 }
