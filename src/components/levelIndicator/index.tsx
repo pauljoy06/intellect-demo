@@ -28,7 +28,10 @@ const LevelIndicator = (): React.JSX.Element => {
             
             key={level.value}
         />)}
-        <div className={`bottom-triangle${selectedLevel >= 1 ? ' level-active' : ''}`} />
+        <div
+            className={`bottom-triangle${selectedLevel >= 1 ? ' level-active' : ''}`}
+            onClick={() => setSelectedLevel(1)}
+        />
     </div>
 }
 
